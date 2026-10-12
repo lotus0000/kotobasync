@@ -1,0 +1,13 @@
+.env
+data/
+node_modules/
+dist/
+__pycache__/
+.venv/
+server/*.db*
+release/
+
+# personal, never published
+LOCAL.md
+.project.yaml
+docs/superpowers/

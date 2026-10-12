@@ -1,0 +1,23 @@
+{
+  "name": "@kotoba/extension",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@kotoba/shared": "0.1.0",
+    "dexie": "4.4.6"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.1.43",
+    "esbuild": "0.28.2",
+    "fake-indexeddb": "6.2.5",
+    "jsdom": "26.1.0",
+    "typescript": "5.9.3",
+    "vitest": "3.2.7"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "KotobaSync",
+  "version": "0.1.1",
+  "description": "在 ChatGPT 上划词收藏日语生词，离线优先同步到 KotobaSync。",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnpK5nXknSTJx4Q3wSq367RcNFKEly5jKRw9v4MT1lN3XUU+Zz626gyJAy1qbIez4diJHgr9noU+o+VGhefw6k8iZP/D5DbQncbPBSyAMdfbUjwQvUKj1wXis06i3UjBje6++q6fdaSobFffDXDMZi3hGE/2/Z5NvfIXgfZTqRdmrKHriGUSPsbMUnMrs8adAEMy10EYMrqc2woaJmaFlYzrTtrh4N7Xcs/KpCaQ7NOLyVaEFR89uZvcO4ActYpOA7yellFrQsECLYYJNsBOk4l4NawAU0xiHQDKE8fpc9XvKPap9yMilZA2sRwxReHLsLR1zpQ1bQfQlMhBw3w6u/QIDAQAB",
+  "permissions": [
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://chatgpt.com/*"
+  ],
+  "optional_host_permissions": [
+    "https://*/*",
+    "http://127.0.0.1/*",
+    "http://localhost/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*"
+      ],
+      "js": [
+        "guard.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://chatgpt.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html",
+  "action": {
+    "default_title": "KotobaSync 设置"
+  },
+  "icons": {
+    "128": "icon-128.png"
+  }
+}

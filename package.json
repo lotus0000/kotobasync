@@ -1,0 +1,15 @@
+{
+  "name": "kotobasync",
+  "private": true,
+  "workspaces": [
+    "shared",
+    "web",
+    "extension"
+  ],
+  "scripts": {
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "build": "npm run build -w web",
+    "build:extension": "npm run build -w extension"
+  }
+}

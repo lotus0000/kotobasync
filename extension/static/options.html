@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>KotobaSync 设置</title>
+    <style>
+      body { font: 14px system-ui, -apple-system, "PingFang SC", sans-serif; max-width: 520px; margin: 32px auto; padding: 0 16px; color: #1c1917; background: #fafaf9; }
+      h1 { font-size: 18px; } h2 { font-size: 14px; color: #78716c; margin-top: 28px; }
+      label { display: block; margin: 10px 0 4px; color: #57534e; font-size: 12px; }
+      input { width: 100%; box-sizing: border-box; padding: 8px 10px; border: 1px solid #d6d3d1; border-radius: 8px; font-size: 14px; }
+      button { margin-top: 12px; padding: 8px 14px; border: 0; border-radius: 8px; background: #1c1917; color: #fafaf9; cursor: pointer; }
+      button.secondary { background: #e7e5e4; color: #1c1917; }
+      .msg { color: #b45309; font-size: 12px; min-height: 1em; margin-top: 6px; }
+      @media (prefers-color-scheme: dark) {
+        body { background: #0c0a09; color: #fafaf9; } input { background: #1c1917; color: #fafaf9; border-color: #44403c; }
+        button { background: #fafaf9; color: #1c1917; } button.secondary { background: #292524; color: #fafaf9; }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>KotobaSync</h1>
+    <p id="status">…</p>
+    <button id="syncNow" class="secondary" type="button">立即同步</button>
+
+    <h2>服务器</h2>
+    <form id="serverForm">
+      <label for="serverUrl">服务器地址</label>
+      <input id="serverUrl" type="url" required />
+      <label for="cfClientId">Cloudflare Access Client ID</label>
+      <input id="cfClientId" type="text" autocomplete="off" />
+      <label for="cfClientSecret">Cloudflare Access Client Secret</label>
+      <input id="cfClientSecret" type="password" autocomplete="off" />
+      <button type="submit">保存</button>
+      <p id="serverMsg" class="msg"></p>
+    </form>
+
+    <section id="login">
+      <h2>登录</h2>
+      <form id="loginForm">
+        <label for="passphrase">口令</label>
+        <input id="passphrase" type="password" required />
+        <label for="deviceName">设备名</label>
+        <input id="deviceName" type="text" value="Chrome 扩展" />
+        <button type="submit">登录</button>
+        <p id="loginMsg" class="msg"></p>
+      </form>
+    </section>
+
+    <section id="account" hidden>
+      <h2>账户</h2>
+      <p>已登录。</p>
+      <button id="logout" class="secondary" type="button">退出登录</button>
+    </section>
+
+    <script type="module" src="options.js"></script>
+  </body>
+</html>
